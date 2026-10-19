@@ -1,0 +1,6 @@
+# Runtime dependencies for the OSPF Fault Engine (CET361 Project 2).
+# Tested with Python 3.10+. Install with: pip install -r requirements.txt
+
+streamlit>=1.32.0     # dashboard UI
+graphviz>=0.20.1      # syslog timeline rendering
+pytest>=8.0.0         # test suite (pytest -q)

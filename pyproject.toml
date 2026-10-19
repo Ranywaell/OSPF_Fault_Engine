@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ospf-fault-engine"
+version = "2.0.0"
+description = "CET361 - OSPF / STP / VLAN / ACL / DHCP / DNS fault troubleshooting engine"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "CET361 Routing & Switching" }]
+dependencies = [
+    "streamlit>=1.32.0",
+    "graphviz>=0.20.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[tool.setuptools.packages.find]
+include = ["ospf_engine*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+filterwarnings = ["error::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "SIM", "C4"]
+ignore = ["E501"]  # we let black/streamlit text run a bit long
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
